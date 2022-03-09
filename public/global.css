@@ -46,6 +46,10 @@ textarea {
   border-radius: 2px;
 }
 
+/* This prevents Firefox form displaying a red bos shadow around inputs than have no value */
+input:invalid {
+  box-shadow: none;
+}
 input:disabled {
   color: #ccc;
 }
