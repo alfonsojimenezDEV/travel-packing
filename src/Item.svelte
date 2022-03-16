@@ -2,7 +2,7 @@
     import {blurOnKey} from './util'
 
     export let item; // parámetro que recibirá el componente y que se corresponde con el item a pintar.
-                     // este item tendrá será un objeto con varias propiedades como name y packed
+                     // este item será un objeto con varias propiedades como name y packed
     let editing = false; 
     
 </script>  
