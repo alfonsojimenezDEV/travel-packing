@@ -24,15 +24,30 @@
     }
 
     function addItem() {
-        alert ('Add Item');
-        //Falta código página 74
+        //alert ('Add Item');
+        //Código página 74
+        //Código para comprobar si el nombre del item está duplicado
+
+        const duplicate = Object.values(categories).some(cat => Object.values(cat.items).some(item => item.name===itemName) );
+        if (duplicate) {
+            message = `This item "${itemName}" already exists.`;
+            alert(message);
+            return; 
+        }
+
+        const {items} = category;
+        const id = getGuid();
+        
+        items[id] = {id, name: itemName, packed:false}; // Se crea el elemento
+        category.items = items; 
+        itemName = '';
     }
+
 
 </script>
 
 
 <section>
-    <h2>Prueba desde Category</h2>
     
     <h3>
         {#if editing}
@@ -42,9 +57,18 @@
         {:else}
              <span on:click={() => (editing=true)}>{category.name}</span>
         {/if}
+        <span class="status">{status}</span>
+        <button class="icon">&#x1F5D1</button>
     </h3>
 
-    <!-- //Falta codigo form on:submit página 75 -->
+    <!-- Código página 75 -->
+    <form action="" on:submit|preventDefault={addItem}>
+        <label for="">
+            New Item
+            <input type="text" bind:value={itemName}>
+        </label>
+        <button disabled={!itemName}>Add Item</button>
+    </form>
 
     <ul>
         {#each itemsToShow as item(item.id)}
@@ -56,5 +80,48 @@
 </section>
 
 <style>
-    /* Falta el código del style de página 75 */
+    /* Código del style de página 75 */
+    button, input {
+        border: solid lightgray 1px;
+    }
+
+    button.icon {
+        border: none;
+        background-color: transparent;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+    }
+
+    section {
+        --padding: 10px;
+
+        background-color: white;
+        border: solid transparent 3px;
+        border-radius: var(--padding);
+        color: black;
+        display: inline-block;
+        margin: var(--padding);
+        padding: calc(var(--padding) * 2);
+        padding-top: var(--padding);
+        vertical-align: top;
+        min-width: 400px;
+    }
+
+    .status {
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0 15px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
 </style>
