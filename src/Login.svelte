@@ -3,7 +3,7 @@
     let username = '';
 
     const login = () => alert ('You pressed Login');
-    const sigunp = () => alert ('You pressed Signup');
+    const signup = () => alert ('You pressed Signup');
 
 </script>
 
@@ -19,7 +19,7 @@
         </label>
         <div class="buttons">
             <button>Login</button>
-            <button type="button" on:click={sigunp}>Sign Up</button>
+            <button type="button" on:click={signup}>Sign Up</button>
         </div>
     </form>
 </section>

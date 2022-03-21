@@ -1,12 +1,19 @@
 <script>
 	import Login from './Login.svelte';
-	export let name;
+	import Checklist from './Checklist.svelte';
+	import Item from './Item.svelte';
+	import Category from './Category.svelte';
+
+	
 </script>
 
 <main>
 	<h1 class="hero">Travel Packing Checklist</h1>
 	
-	<Login />
+	<!-- <Login /> -->
+	<Checklist />
+	<!-- <Category /> -->
+	<!-- <Item /> -->
 </main>
 
 <style>

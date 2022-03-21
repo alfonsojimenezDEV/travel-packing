@@ -7,6 +7,7 @@
     
 </script>  
 
+<h2>Prueba de item</h2>
 
 <li>
     <input type="checkbox" bind:value={item.packed} />

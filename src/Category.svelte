@@ -1,5 +1,5 @@
 <script>
-    import Item from './Item.svelte'
+    import Item from './Item.svelte';
     import {getGuid, blurOnKey, sortOnName} from './util';
 
     export let categories; // Is used to determine whether an item to be added already exists in another category
@@ -25,12 +25,15 @@
 
     function addItem() {
         alert ('Add Item');
+        //Falta código página 74
     }
 
 </script>
 
 
 <section>
+    <h2>Prueba desde Category</h2>
+    
     <h3>
         {#if editing}
             <input  bind:value={category.name} 
@@ -40,4 +43,18 @@
              <span on:click={() => (editing=true)}>{category.name}</span>
         {/if}
     </h3>
+
+    <!-- //Falta codigo form on:submit página 75 -->
+
+    <ul>
+        {#each itemsToShow as item(item.id)}
+            <Item bind:item/>
+        {:else}
+             <div>This category does not contain any items yet.</div>
+        {/each}
+    </ul>
 </section>
+
+<style>
+    /* Falta el código del style de página 75 */
+</style>
